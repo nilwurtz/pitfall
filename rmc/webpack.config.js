@@ -2,7 +2,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.ts",
   output: {
-    filename: "tsc-rmc.js"
+    filename: "rmc.js"
   },
   target: "node",
   module: {

@@ -1,75 +1,75 @@
-import { DEFAULT_INDENT_OPTION, DEFAULT_TARGET_OPTION, DEFAULT_WRITE_OPTION } from "../config";
+import { DEFAULT_INDENT_OPTION, DEFAULT_WRITE_OPTION } from "../config";
 import { getOptions, Options, ParsedOptions } from "../lib/options";
 
 describe("#getOptions", () => {
   it("apply default value.", () => {
+    const args = ["tsconfig.json"];
     const expected: Options = {
-      target: DEFAULT_TARGET_OPTION,
+      target: "tsconfig.json",
       write: DEFAULT_WRITE_OPTION,
       indent: DEFAULT_INDENT_OPTION,
     };
     const parsedOptions: ParsedOptions = {
-      file: undefined,
       w: undefined,
       i: undefined,
     };
-    const actual = getOptions(parsedOptions);
+    const actual = getOptions(args, parsedOptions);
     expect(actual).toEqual(expected);
   });
-  it("apply target value.", () => {
+  it("apply file arg.", () => {
+    const args = ["./tsconfig.webpack.json"];
     const expected: Options = {
       target: "./tsconfig.webpack.json",
       write: DEFAULT_WRITE_OPTION,
       indent: DEFAULT_INDENT_OPTION,
     };
     const parsedOptions: ParsedOptions = {
-      file: "./tsconfig.webpack.json",
       w: undefined,
       i: undefined,
     };
-    const actual = getOptions(parsedOptions);
+    const actual = getOptions(args, parsedOptions);
     expect(actual).toEqual(expected);
   });
   it("apply write value.", () => {
+    const args = ["./tsconfig.webpack.json"];
     const expected: Options = {
-      target: DEFAULT_TARGET_OPTION,
+      target: "./tsconfig.webpack.json",
       write: true,
       indent: DEFAULT_INDENT_OPTION,
     };
     const parsedOptions: ParsedOptions = {
-      file: undefined,
       w: true,
       i: undefined,
     };
-    const actual = getOptions(parsedOptions);
+    const actual = getOptions(args, parsedOptions);
     expect(actual).toEqual(expected);
   });
   it("apply indent value.", () => {
+    const args = ["tsconfig.json"];
     const expected: Options = {
-      target: DEFAULT_TARGET_OPTION,
+      target: "tsconfig.json",
       write: DEFAULT_WRITE_OPTION,
       indent: 4,
     };
     const parsedOptions: ParsedOptions = {
-      file: DEFAULT_TARGET_OPTION,
-      w: DEFAULT_WRITE_OPTION,
+      w: undefined,
       i: 4,
     };
-    const actual = getOptions(parsedOptions);
+    const actual = getOptions(args, parsedOptions);
     expect(actual).toEqual(expected);
   });
   it("apply every value.", () => {
+    const args = ["./config/tsconfig.json"];
     const expected: Options = {
       target: "./config/tsconfig.json",
       write: true,
       indent: 4,
     };
     const parsedOptions: ParsedOptions = {
-      file: "./config/tsconfig.json",
       w: true,
       i: 4,
     };
-    const actual = getOptions(parsedOptions);
+    const actual = getOptions(args, parsedOptions);
     expect(actual).toEqual(expected);
   });
 });

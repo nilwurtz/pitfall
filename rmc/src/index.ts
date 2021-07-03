@@ -3,7 +3,7 @@ import { DEFAULT_INDENT_OPTION, DEFAULT_TARGET_OPTION, DEFAULT_WRITE_OPTION, VER
 import { FileNotExistsError } from "./lib/exceptions";
 import { fileExists, processFile } from "./lib/file";
 import { parseIntOption } from "./lib/integer";
-import { getOptions } from "./lib/options";
+import { getOptions, printOptions } from "./lib/options";
 
 const program = new Command();
 
@@ -15,7 +15,7 @@ program.parse(process.argv);
 
 try {
   const options = getOptions(program.opts());
-  console.log(program.opts());
+  printOptions(options);
 
   if (fileExists(options.target)) {
     processFile(options);

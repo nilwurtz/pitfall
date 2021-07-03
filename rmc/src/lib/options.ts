@@ -1,4 +1,5 @@
-import { DEFAULT_INDENT_OPTION, DEFAULT_TARGET_OPTION, DEFAULT_WRITE_OPTION } from "../config";
+import { DEFAULT_INDENT_OPTION, DEFAULT_TARGET_OPTION, DEFAULT_WRITE_OPTION, NAME } from "../config";
+import chalk from "chalk";
 
 export type ParsedOptions = {
   file?: string;
@@ -18,4 +19,15 @@ export const getOptions = (opts: ParsedOptions): Options => {
     write: opts.w ? opts.w : DEFAULT_WRITE_OPTION,
     indent: opts.i ? opts.i : DEFAULT_INDENT_OPTION,
   };
+};
+
+export const printOptions = (opts: Options): void => {
+  if (opts.write) {
+    console.log(chalk.blue(`[${NAME}]`), `Overwrite file:`, chalk.green.underline(`${opts.target}`));
+    console.log(chalk.blue(`[${NAME}]`), `Indent size:`, chalk.green.underline(`${opts.indent}`));
+  } else {
+    console.log(chalk.blue(`[${NAME}]`), "Dry running...");
+    console.log(chalk.blue(`[${NAME}]`), `Target file:`, chalk.green(`${opts.target}`));
+    console.log(chalk.blue(`[${NAME}]`), `Indent size:`, chalk.green(`${opts.indent}`));
+  }
 };

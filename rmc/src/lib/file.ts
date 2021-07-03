@@ -13,9 +13,9 @@ export const processFile = (option: Options) => {
     .then((b) => {
       const jsonObj = parse(b, undefined, true);
       if (option.write) {
-        console.log(stringify(jsonObj, null, 2));
+        console.log(stringify(jsonObj, null, option.indent));
       } else {
-        console.log(stringify(jsonObj, null, 2));
+        console.log(stringify(jsonObj, null, option.indent));
       }
     })
     .catch((e) => {

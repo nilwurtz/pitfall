@@ -4,7 +4,7 @@
   "description": "json remove comments tool",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --watch",
+    "dev": "webpack --watch",
     "test": "jest"
   },
   "keywords": [],
@@ -21,6 +21,7 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
+    "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "comment-json": "^4.1.0"
   }

@@ -1,8 +1,4 @@
-import {
-  DEFAULT_INDENT_OPTION,
-  DEFAULT_TARGET_OPTION,
-  DEFAULT_WRITE_OPTION,
-} from "../config";
+import { DEFAULT_INDENT_OPTION, DEFAULT_TARGET_OPTION, DEFAULT_WRITE_OPTION } from "../config";
 import { getOptions, Options, ParsedOptions } from "../lib/options";
 
 describe("#getOptions", () => {

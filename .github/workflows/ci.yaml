@@ -49,10 +49,6 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: test
-
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
@@ -74,10 +70,12 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install dependencies
+      - name: Install npm dependencies
+        working-directory: ./rmc
         run: npm ci
 
       - name: Build package
+        working-directory: ./rmc
         run: npm run build
 
       - name: Set up Python 3.9

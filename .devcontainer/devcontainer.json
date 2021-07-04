@@ -1,0 +1,17 @@
+{
+  "name": "pitfall",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "../"
+  },
+
+  "mounts": ["source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"],
+  "postCreateCommand": "cd test && poetry install",
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "CoenraadS.bracket-pair-colorizer-2",
+    "shardulm94.trailing-spaces",
+    "ms-python.python"
+  ],
+  "remoteUser": "node"
+}

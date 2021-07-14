@@ -6,6 +6,8 @@ authors = ["ragnar1904 <apollo.oth@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+autopep8 = "^1.5.7"
+assertpy = "^1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack --mode production",
+    "clean-build": "rm -rf dist && npm run build",
     "test": "jest"
   },
   "keywords": [],

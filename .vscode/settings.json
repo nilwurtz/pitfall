@@ -12,5 +12,11 @@
   },
   "[jsonc]": {
     "editor.tabSize": 2
-  }
+  },
+  "[python]": {
+    "editor.wordBasedSuggestions": false,
+    "editor.defaultFormatter": null
+  },
+  "python.formatting.autopep8Args": ["--max-line-length", "120"],
+  "python.defaultInterpreterPath": "test/.venv/bin/python"
 }

@@ -6,7 +6,7 @@
   },
 
   "mounts": ["source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"],
-  "postCreateCommand": "cd test && poetry install",
+  "postCreateCommand": "cd test && poetry install && cd ../rmc && npm i",
   "extensions": [
     "esbenp.prettier-vscode",
     "CoenraadS.bracket-pair-colorizer-2",
